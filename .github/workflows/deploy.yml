@@ -18,12 +18,14 @@ jobs:
     - name: install dependencies
       run: yarn install --frozen-lockfile
     - name: log sha
-      run: echo $GITHUB_SHA
+      run: |
+        echo $GITHUB_SHA
+        echo $GITHUB_SHA | head -c7
     - name: build
       run: yarn build
       env:
         CI: true
     - uses: actions/upload-artifact@v1
       with:
-        name: build-$(echo $GITHUB_SHA)
+        name: build-${{ echo $GITHUB_SHA | head -c7 }}
         path: build
