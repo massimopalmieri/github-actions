@@ -1,0 +1,25 @@
+name: deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: install dependencies
+      run: yarn install --frozen-lockfile
+    - name: build
+      run: yarn build
+      env:
+        CI: true
+    - uses: actions/upload-artifact@v1
+      with:
+        name: my-artifact
+        path: build
