@@ -1,8 +1,6 @@
 name: validation
 
 on:
-  repository_dispatch:
-    types: on-demand-test
   pull_request:
     branches:
     - master
