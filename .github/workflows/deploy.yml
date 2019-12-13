@@ -27,5 +27,5 @@ jobs:
         CI: true
     - uses: actions/upload-artifact@v1
       with:
-        name: build-${{ echo $GITHUB_SHA | head -c7 }}
+        name: build-${{ $GITHUB_SHA }}
         path: build
