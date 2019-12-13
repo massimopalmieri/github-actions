@@ -25,5 +25,5 @@ jobs:
         CI: true
     - uses: actions/upload-artifact@v1
       with:
-        name: build-$GITHUB_SHA
+        name: build-$(echo $GITHUB_SHA)
         path: build
