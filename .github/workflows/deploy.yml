@@ -25,5 +25,3 @@ jobs:
       with:
         name: build-${{ github.sha }}
         path: build
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v1
